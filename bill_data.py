@@ -12,15 +12,15 @@ class bill_display:
         self.width = width
        
     def bill_dis():
-        bill_dis=Frame(Home_Frame.win,bg="bisque2",bd=5,relief=GROOVE)
-        bill_dis.place(x=230, y=200, width=1305, height=600)
+        bill_disf=Frame(Home_Frame.win,bg="bisque2",bd=5,relief=GROOVE)
+        bill_disf.place(x=230, y=200, width=1305, height=600)
     
-        canvas1=Canvas(bill_dis,width=600,height=500,bg="black").place(x=270, y=40)
-        y_scroll = ttk.Scrollbar(bill_dis,orient=VERTICAL)
+        canvas1=Canvas(bill_disf,width=600,height=500,bg="black").place(x=270, y=40)
+        y_scroll = ttk.Scrollbar(bill_disf,orient=VERTICAL)
 
 
-        x_scroll = ttk.Scrollbar(bill_dis,orient=HORIZONTAL)
-        bill_dis = ttk.Treeview(bill_dis,columns=("bill_id","date","cus_name","prod_name","sub_total"),yscrollcommand=y_scroll,xscrollcommand=x_scroll)
+        x_scroll = ttk.Scrollbar(bill_disf,orient=HORIZONTAL)
+        bill_dis = ttk.Treeview(bill_disf,columns=("bill_id","date","cus_name","prod_name","total_qty","sub_total"),yscrollcommand=y_scroll,xscrollcommand=x_scroll)
 
 
         y_scroll.config(command=bill_dis.yview)
@@ -33,7 +33,7 @@ class bill_display:
 
         bill_dis.heading("bill_id",text="bill_id")
         bill_dis.heading("date",text="date")
-
+        bill_dis.heading("total_qty",text="Quntity")
 
         bill_dis.heading("cus_name",text="cus_name")
         bill_dis.heading("prod_name",text="prod_name")
@@ -45,11 +45,11 @@ class bill_display:
 
         bill_dis.column("date",width=30,anchor=CENTER)
         bill_dis.column("cus_name",width=10,anchor=CENTER)
-
+        
         
         bill_dis.column("prod_name",width=200,anchor=CENTER)
         bill_dis.column("sub_total",width=1,anchor=CENTER)
-
+        bill_dis.column("total_qty",width=20,anchor=CENTER)
         bill_dis['show'] = 'headings'
         bill_dis.pack(fill=BOTH,expand=True)
 
